@@ -1,0 +1,326 @@
+{
+  "site": {
+    "name": "Holy Week Live",
+    "tagline": "Experience Holy Week Together",
+    "description": "Join us for live streaming of Holy Week services, connecting our community in faith and prayer."
+  },
+  "live": {
+    "enabled": true,
+    "platform": "youtube",
+    "title": "Good Friday Liturgy of the Lord's Passion",
+    "description": "Join us for the solemn commemoration of the Passion of our Lord Jesus Christ. This service includes the reading of the Passion narrative, veneration of the Cross, and Holy Communion.",
+    "viewers": 1247,
+    "thumbnail": "https://images.unsplash.com/photo-1669945541989-fcaf771cc6b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjBhbHRhciUyMGNhbmRsZXN8ZW58MXx8fHwxNzc0MTY5NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "autoFetch": true,
+    "youtube": {
+      "apiKey": "",
+      "videoId": "",
+      "channelId": ""
+    },
+    "twitch": {
+      "channelName": "",
+      "apiKey": ""
+    },
+    "facebook": {
+      "videoId": "",
+      "videoUrl": "",
+      "apiKey": ""
+    },
+    "obs": {
+      "rtmpUrl": "rtmp://a.rtmp.youtube.com/live2",
+      "streamKey": ""
+    },
+    "customPlayer": {
+      "hlsUrl": "",
+      "poster": "",
+      "fallbackUrl": ""
+    }
+  },
+  "events": [
+    {
+      "id": "1",
+      "title": "Palm Sunday Liturgy",
+      "date": "2026-03-16T10:00:00",
+      "displayDate": "Sunday, March 16, 2026",
+      "time": "10:00 AM",
+      "location": "Sanctuary",
+      "description": "Procession with palms and Holy Eucharist commemorating Jesus' entry into Jerusalem",
+      "image": "https://images.unsplash.com/photo-1703240670790-765ad241868e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYWxtJTIwc3VuZGF5JTIwcHJvY2Vzc2lvbnxlbnwxfHx8fDE3NzQxNjk1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "status": "completed",
+      "category": "palm-sunday"
+    },
+    {
+      "id": "2",
+      "title": "Evening Prayer",
+      "date": "2026-03-16T18:00:00",
+      "displayDate": "Sunday, March 16, 2026",
+      "time": "6:00 PM",
+      "location": "Chapel",
+      "description": "Contemplative evening prayer service",
+      "image": "https://images.unsplash.com/photo-1550541231-56ddb7f844ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjBzdGFpbmVkJTIwZ2xhc3N8ZW58MXx8fHwxNzc0MTY5NTE5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "status": "completed",
+      "category": "holy-week"
+    },
+    {
+      "id": "3",
+      "title": "Monday Evening Prayer",
+      "date": "2026-03-17T19:00:00",
+      "displayDate": "Monday, March 17, 2026",
+      "time": "7:00 PM",
+      "location": "Chapel",
+      "description": "Evening prayer and meditation",
+      "image": "https://images.unsplash.com/photo-1659559746265-508945b6d7a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXRoZWRyYWwlMjBpbnRlcmlvciUyMHdvcnNoaXB8ZW58MXx8fHwxNzc0MTY5NTIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "status": "completed",
+      "category": "holy-week"
+    },
+    {
+      "id": "4",
+      "title": "Tuesday Evening Prayer",
+      "date": "2026-03-18T19:00:00",
+      "displayDate": "Tuesday, March 18, 2026",
+      "time": "7:00 PM",
+      "location": "Chapel",
+      "description": "Evening prayer and meditation",
+      "image": "https://images.unsplash.com/photo-1659559746265-508945b6d7a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXRoZWRyYWwlMjBpbnRlcmlvciUyMHdvcnNoaXB8ZW58MXx8fHwxNzc0MTY5NTIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "status": "completed",
+      "category": "holy-week"
+    },
+    {
+      "id": "5",
+      "title": "Wednesday Evening Prayer",
+      "date": "2026-03-19T19:00:00",
+      "displayDate": "Wednesday, March 19, 2026",
+      "time": "7:00 PM",
+      "location": "Chapel",
+      "description": "Evening prayer and meditation",
+      "image": "https://images.unsplash.com/photo-1659559746265-508945b6d7a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXRoZWRyYWwlMjBpbnRlcmlvciUyMHdvcnNoaXB8ZW58MXx8fHwxNzc0MTY5NTIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "status": "completed",
+      "category": "holy-week"
+    },
+    {
+      "id": "6",
+      "title": "Maundy Thursday",
+      "date": "2026-03-20T19:00:00",
+      "displayDate": "Thursday, March 20, 2026",
+      "time": "7:00 PM",
+      "location": "Sanctuary",
+      "description": "Holy Eucharist with foot washing and stripping of the altar",
+      "image": "https://images.unsplash.com/photo-1633102443442-0d0b9436b9b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob2x5JTIwY29tbXVuaW9uJTIwY2hhbGljZXxlbnwxfHx8fDE3NzQxNjk1MTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "status": "completed",
+      "category": "triduum"
+    },
+    {
+      "id": "7",
+      "title": "Good Friday Liturgy",
+      "date": "2026-03-21T12:00:00",
+      "displayDate": "Friday, March 21, 2026",
+      "time": "12:00 PM",
+      "location": "Sanctuary",
+      "description": "Solemn liturgy of the Passion with Veneration of the Cross",
+      "image": "https://images.unsplash.com/photo-1669945541989-fcaf771cc6b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjBhbHRhciUyMGNhbmRsZXN8ZW58MXx8fHwxNzc0MTY5NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "status": "live",
+      "category": "triduum"
+    },
+    {
+      "id": "8",
+      "title": "Stations of the Cross",
+      "date": "2026-03-21T19:00:00",
+      "displayDate": "Friday, March 21, 2026",
+      "time": "7:00 PM",
+      "location": "Sanctuary",
+      "description": "Walking the way of the Cross in prayer and reflection",
+      "image": "https://images.unsplash.com/photo-1550541231-56ddb7f844ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjBzdGFpbmVkJTIwZ2xhc3N8ZW58MXx8fHwxNzc0MTY5NTE5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "status": "upcoming",
+      "category": "triduum"
+    },
+    {
+      "id": "9",
+      "title": "Easter Vigil",
+      "date": "2026-03-21T20:00:00",
+      "displayDate": "Saturday, March 21, 2026",
+      "time": "8:00 PM",
+      "location": "Sanctuary",
+      "description": "The Great Vigil of Easter, the first celebration of the Resurrection",
+      "image": "https://images.unsplash.com/photo-1669945541989-fcaf771cc6b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjBhbHRhciUyMGNhbmRsZXN8ZW58MXx8fHwxNzc0MTY5NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "status": "upcoming",
+      "category": "easter"
+    },
+    {
+      "id": "10",
+      "title": "Easter Sunrise Service",
+      "date": "2026-03-22T06:30:00",
+      "displayDate": "Sunday, March 22, 2026",
+      "time": "6:30 AM",
+      "location": "Outdoor Garden",
+      "description": "Sunrise service celebrating the dawn of resurrection",
+      "image": "https://images.unsplash.com/photo-1676723633852-4791753e960e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlYXN0ZXIlMjBjcm9zcyUyMHN1bnJpc2V8ZW58MXx8fHwxNzc0MTY5NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "status": "upcoming",
+      "category": "easter"
+    },
+    {
+      "id": "11",
+      "title": "Easter Sunday Morning",
+      "date": "2026-03-22T10:00:00",
+      "displayDate": "Sunday, March 22, 2026",
+      "time": "10:00 AM",
+      "location": "Sanctuary",
+      "description": "Celebration of the Resurrection of our Lord with Holy Eucharist",
+      "image": "https://images.unsplash.com/photo-1676723633852-4791753e960e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlYXN0ZXIlMjBjcm9zcyUyMHN1bnJpc2V8ZW58MXx8fHwxNzc0MTY5NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "status": "upcoming",
+      "category": "easter"
+    }
+  ],
+  "services": [
+    {
+      "id": "1",
+      "title": "Maundy Thursday - Holy Eucharist",
+      "date": "March 20, 2026",
+      "duration": "1:45:30",
+      "thumbnail": "https://images.unsplash.com/photo-1633102443442-0d0b9436b9b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob2x5JTIwY29tbXVuaW9uJTIwY2hhbGljZXxlbnwxfHx8fDE3NzQxNjk1MTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "views": 2453,
+      "category": "Triduum",
+      "videoUrl": ""
+    },
+    {
+      "id": "2",
+      "title": "Palm Sunday Liturgy",
+      "date": "March 16, 2026",
+      "duration": "1:32:15",
+      "thumbnail": "https://images.unsplash.com/photo-1703240670790-765ad241868e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYWxtJTIwc3VuZGF5JTIwcHJvY2Vzc2lvbnxlbnwxfHx8fDE3NzQxNjk1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "views": 3120,
+      "category": "Sunday",
+      "videoUrl": ""
+    },
+    {
+      "id": "3",
+      "title": "Wednesday Evening Prayer",
+      "date": "March 19, 2026",
+      "duration": "45:20",
+      "thumbnail": "https://images.unsplash.com/photo-1659559746265-508945b6d7a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXRoZWRyYWwlMjBpbnRlcmlvciUyMHdvcnNoaXB8ZW58MXx8fHwxNzc0MTY5NTIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "views": 1832,
+      "category": "Prayer",
+      "videoUrl": ""
+    },
+    {
+      "id": "4",
+      "title": "Tuesday Evening Prayer",
+      "date": "March 18, 2026",
+      "duration": "42:10",
+      "thumbnail": "https://images.unsplash.com/photo-1550541231-56ddb7f844ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjBzdGFpbmVkJTIwZ2xhc3N8ZW58MXx8fHwxNzc0MTY5NTE5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "views": 1652,
+      "category": "Prayer",
+      "videoUrl": ""
+    },
+    {
+      "id": "5",
+      "title": "Monday Evening Prayer",
+      "date": "March 17, 2026",
+      "duration": "40:55",
+      "thumbnail": "https://images.unsplash.com/photo-1669945541989-fcaf771cc6b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjBhbHRhciUyMGNhbmRsZXN8ZW58MXx8fHwxNzc0MTY5NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "views": 1421,
+      "category": "Prayer",
+      "videoUrl": ""
+    },
+    {
+      "id": "6",
+      "title": "Palm Sunday Evening Prayer",
+      "date": "March 16, 2026",
+      "duration": "38:45",
+      "thumbnail": "https://images.unsplash.com/photo-1659559746265-508945b6d7a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXRoZWRyYWwlMjBpbnRlcmlvciUyMHdvcnNoaXB8ZW58MXx8fHwxNzc0MTY5NTIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "views": 982,
+      "category": "Prayer",
+      "videoUrl": ""
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "1",
+      "name": "Margaret Stevens",
+      "initials": "MS",
+      "location": "Boston, MA",
+      "text": "Being able to participate in Holy Week services from home has been a blessing. The quality is excellent and I feel connected to the community."
+    },
+    {
+      "id": "2",
+      "name": "Robert Chen",
+      "initials": "RC",
+      "location": "San Francisco, CA",
+      "text": "As someone who travels frequently for work, Holy Week Live allows me to maintain my spiritual practice no matter where I am. Truly grateful."
+    },
+    {
+      "id": "3",
+      "name": "Elizabeth Morgan",
+      "initials": "EM",
+      "location": "Austin, TX",
+      "text": "The live chat feature makes me feel like I'm right there in the sanctuary. Such a wonderful way to worship together across distances."
+    }
+  ],
+  "pages": {
+    "home": {
+      "heroTitle": "Experience Holy Week Together",
+      "heroDescription": "Join us for live streaming of Holy Week services, connecting our community in faith and prayer.",
+      "heroBadge": "Holy Week 2026",
+      "countdownTitle": "Next Service: Easter Vigil",
+      "countdownDate": "2026-03-21T20:00:00",
+      "liveSectionTitle": "Live Now",
+      "upcomingTitle": "Upcoming Services",
+      "testimonialsTitle": "What Our Community Says",
+      "testimonialsDescription": "Hear from viewers around the world"
+    },
+    "schedule": {
+      "title": "Holy Week Schedule",
+      "description": "All services will be live-streamed and available for viewing afterward",
+      "downloadButtonText": "Download Full Schedule",
+      "reminderButtonText": "Get Notifications"
+    },
+    "services": {
+      "title": "Service Archive",
+      "description": "Watch past services and special events from Holy Week",
+      "featuredTitle": "Featured Service",
+      "searchPlaceholder": "Search services...",
+      "hdBadge": "All Available in HD"
+    },
+    "about": {
+      "title": "About Holy Week Live",
+      "description": "Bringing our community together in faith and prayer",
+      "heroImage": "https://images.unsplash.com/photo-1659559746265-508945b6d7a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXRoZWRyYWwlMjBpbnRlcmlvciUyMHdvcnNoaXB8ZW58MXx8fHwxNzc0MTY5NTIwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "missionTitle": "Our Mission",
+      "missionText1": "Holy Week Live is dedicated to bringing the sacred services of Holy Week to our community through high-quality live streaming. We believe that everyone should have access to these meaningful services, regardless of their location or circumstances.",
+      "missionText2": "Since our founding in 2020, we have been privileged to serve thousands of viewers who join us in prayer and worship during this most sacred time of the year. Our mission is to create a welcoming digital sanctuary where all can experience the profound journey from Palm Sunday through Easter.",
+      "values": [
+        {
+          "icon": "Heart",
+          "title": "Faith",
+          "description": "Grounded in tradition and centered on the message of hope and redemption"
+        },
+        {
+          "icon": "Users",
+          "title": "Community",
+          "description": "Building connections across distances to worship together as one body"
+        },
+        {
+          "icon": "Video",
+          "title": "Excellence",
+          "description": "Committed to providing the highest quality streaming experience"
+        }
+      ],
+      "techTitle": "Technical Information",
+      "techStreamingQuality": "All services are broadcast in high-definition (HD) quality with professional audio. We use adaptive streaming technology to ensure the best possible experience for your internet connection.",
+      "techArchiveAccess": "Recorded services are typically available within 24 hours of the live broadcast and remain accessible indefinitely. You can watch services on demand at any time.",
+      "techDeviceCompatibility": "Our streaming platform works on desktop computers, laptops, tablets, and smartphones. For the best experience, we recommend using the latest version of Chrome, Firefox, Safari, or Edge.",
+      "contactTitle": "Get in Touch",
+      "contactDescription": "We'd love to hear from you! Whether you have questions, need technical support, or would like to get involved, please don't hesitate to reach out.",
+      "contactEmail": "support@holyweeklive.org",
+      "contactPhone": "(555) 123-4567",
+      "contactLocation": "123 Faith Street, Springfield, ST 12345",
+      "contactButtonText": "Send Us a Message",
+      "faqTitle": "Frequently Asked Questions"
+    },
+    "stats": {
+      "community": { "value": 5000, "suffix": "+", "description": "Members joining services online" },
+      "services": { "value": 12, "suffix": "", "description": "Holy Week services and events" },
+      "archive": { "value": 200, "suffix": "+", "description": "Past services available to watch" }
+    }
+  },
+  "adminPassword": "admin123"
+}
