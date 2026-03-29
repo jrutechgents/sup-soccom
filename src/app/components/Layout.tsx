@@ -1,7 +1,8 @@
 import { Outlet, useLocation } from 'react-router';
-import { Cross, Menu, X } from 'lucide-react';
+import { Cross, Menu, X, Radio as RadioIcon } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useContent } from '../../hooks/useContent';
+import { MiniRadioPlayer } from './MiniRadioPlayer';
 
 export function Layout() {
   const { content } = useContent();
@@ -73,6 +74,13 @@ export function Layout() {
               Services
             </a>
             <a
+              href="/radio"
+              className={`inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background h-10 px-4 py-2 ${isActive('/radio') ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'hover:bg-accent hover:text-accent-foreground'}`}
+            >
+              <RadioIcon className="h-4 w-4 mr-1" />
+              Radio
+            </a>
+            <a
               href="/about"
               className={`inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background h-10 px-4 py-2 ${isActive('/about') ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'hover:bg-accent hover:text-accent-foreground'}`}
             >
@@ -118,6 +126,13 @@ export function Layout() {
                 Services
               </a>
               <a
+                href="/radio"
+                className={`inline-flex items-center justify-start rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background h-10 px-4 py-2 w-full ${isActive('/radio') ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'hover:bg-accent hover:text-accent-foreground'}`}
+              >
+                <RadioIcon className="h-4 w-4 mr-2" />
+                Radio
+              </a>
+              <a
                 href="/about"
                 className={`inline-flex items-center justify-start rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background h-10 px-4 py-2 w-full ${isActive('/about') ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'hover:bg-accent hover:text-accent-foreground'}`}
               >
@@ -133,6 +148,14 @@ export function Layout() {
           </div>
         )}
       </header>
+
+      {/* Main Content */}
+      <main className="flex-1" key={location.pathname}>
+        <Outlet key={location.pathname} />
+      </main>
+
+      {/* Mini Radio Player (shown when radio is playing) */}
+      <MiniRadioPlayer />
 
       {/* Main Content */}
       <main className="flex-1" key={location.pathname}>

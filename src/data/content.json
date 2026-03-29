@@ -36,6 +36,14 @@
       "fallbackUrl": ""
     }
   },
+  "radio": {
+    "enabled": true,
+    "name": "Radyo Ursulino",
+    "streamUrl": "https://stream-164.zeno.fm/rdwgvd7cfc9uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJyZHdndmQ3Y2ZjOXV2IiwiaG9zdCI6InN0cmVhbS0xNjQuemVuby5mbSIsInJ0dGQiOjUsImp0aSI6Im5FNDRaeEZ5VFpDYy1WLVRqMHVRWHciLCJpYXQiOjE3NzQxMjg0OTMsImV4cCI6MTc3NDEyODU1M30.9i76CVYyjQ_Leelji8LF-Hld1PiFXt0_-3entdaYBiA",
+    "description": "Listen to Radyo Ursulino - Your Catholic companion in faith, bringing you liturgical music, prayers, and inspirational programming 24/7.",
+    "thumbnail": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+    "showVisualizer": true
+  },
   "events": [
     {
       "id": "1",

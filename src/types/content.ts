@@ -21,6 +21,16 @@ export interface LiveConfig {
   customPlayer: CustomPlayerConfig;
 }
 
+// Radio configuration
+export interface RadioConfig {
+  enabled: boolean;
+  name: string;
+  streamUrl: string;
+  description: string;
+  thumbnail: string;
+  showVisualizer: boolean;
+}
+
 export interface YouTubeConfig {
   apiKey: string;
   videoId: string;
@@ -163,6 +173,7 @@ export interface StatItem {
 export interface ContentConfig {
   site: SiteConfig;
   live: LiveConfig;
+  radio: RadioConfig;
   events: Event[];
   services: Service[];
   testimonials: Testimonial[];

@@ -6,6 +6,7 @@ import { Schedule } from "./pages/Schedule";
 import { Services } from "./pages/Services";
 import { About } from "./pages/About";
 import { Prayer } from "./pages/Prayer";
+import { Radio } from "./pages/Radio";
 import { AdminLogin } from "./pages/AdminLogin";
 import { AdminDashboard } from "./pages/AdminDashboard";
 import { NotFound } from "./pages/NotFound";
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
       { path: "services", Component: Services },
       { path: "about", Component: About },
       { path: "prayer", Component: Prayer },
+      { path: "radio", Component: Radio },
       { path: "*", Component: NotFound },
     ],
   },

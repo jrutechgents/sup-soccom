@@ -6,6 +6,7 @@ import { ContentForm } from '../components/admin/ContentForm';
 import { EventEditor } from '../components/admin/EventEditor';
 import { ServiceEditor } from '../components/admin/ServiceEditor';
 import { LiveStreamConfig } from '../components/admin/LiveStreamConfig';
+import { RadioConfig } from '../components/admin/RadioConfig';
 import { JsonExport } from '../components/admin/JsonExport';
 import { TestimonialEditor } from '../components/admin/TestimonialEditor';
 import { useContent } from '../../hooks/useContent';
@@ -15,7 +16,7 @@ import { useEffect } from 'react';
 import { Download, Save, FileDown } from 'lucide-react';
 import { toast } from 'sonner';
 
-type AdminTab = 'dashboard' | 'general' | 'live' | 'events' | 'services' | 'pages' | 'testimonials';
+type AdminTab = 'dashboard' | 'general' | 'live' | 'radio' | 'events' | 'services' | 'testimonials' | 'pages';
 
 export function AdminDashboard() {
   const { content, saveContent, downloadContentJson } = useContent();
@@ -82,6 +83,9 @@ export function AdminDashboard() {
       if ('live' in updates && updates.live) {
         updated.live = updates.live;
       }
+      if ('radio' in updates && updates.radio) {
+        updated.radio = updates.radio;
+      }
       if ('site' in updates && updates.site) {
         updated.site = updates.site;
       }
@@ -147,12 +151,13 @@ export function AdminDashboard() {
 
       {/* Main Tabs */}
       <Tabs value={activeTab} onValueChange={(v) => handleTabChange(v as AdminTab)}>
-        <TabsList className="grid w-full grid-cols-3 lg:grid-cols-7 h-auto">
+        <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8 h-auto">
           <TabsTrigger value="dashboard" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
             Dashboard
           </TabsTrigger>
           <TabsTrigger value="general">General</TabsTrigger>
           <TabsTrigger value="live">Live</TabsTrigger>
+          <TabsTrigger value="radio">Radio</TabsTrigger>
           <TabsTrigger value="events">Events</TabsTrigger>
           <TabsTrigger value="services">Services</TabsTrigger>
           <TabsTrigger value="testimonials">Testimonials</TabsTrigger>
@@ -261,6 +266,14 @@ export function AdminDashboard() {
           <LiveStreamConfig
             config={editedContent.live}
             onChange={(config) => handleContentUpdate({ live: config })}
+          />
+        </TabsContent>
+
+        {/* Radio Configuration */}
+        <TabsContent value="radio" className="space-y-6">
+          <RadioConfig
+            config={editedContent.radio}
+            onChange={(config) => handleContentUpdate({ radio: config })}
           />
         </TabsContent>
 
