@@ -324,6 +324,20 @@
       "contactButtonText": "Send Us a Message",
       "faqTitle": "Frequently Asked Questions"
     },
+    "prayer": {
+      "title": "Prayer Requests",
+      "subtitle": "Where two or three gather in my name, there am I with them.",
+      "formTitle": "Submit Prayer Request",
+      "candleTitle": "Light a Virtual Candle",
+      "candleDescription": "Light a candle as a symbol of your prayer",
+      "wallTitle": "Prayer Wall",
+      "wallSubtitle": "Join us in praying for these requests",
+      "stats": {
+        "candle": { "title": "Light a Candle", "description": "Share your prayer intentions" },
+        "community": { "title": "Community Prayer", "description": "We pray for each request" },
+        "available": { "title": "Always Available", "description": "Submit anytime, day or night" }
+      }
+    },
     "stats": {
       "community": { "value": 5000, "suffix": "+", "description": "Members joining services online" },
       "services": { "value": 12, "suffix": "", "description": "Holy Week services and events" },

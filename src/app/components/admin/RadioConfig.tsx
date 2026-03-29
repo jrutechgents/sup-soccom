@@ -3,7 +3,7 @@ import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { Label } from '../ui/label';
 import { Switch } from '../ui/switch';
-import { Radio as RadioIcon } from 'lucide-react';
+import { Radio as RadioIcon, Waves } from 'lucide-react';
 import type { RadioConfig } from '../../types/content';
 
 interface RadioConfigProps {
@@ -85,7 +85,7 @@ export function RadioConfig({ config, onChange }: RadioConfigProps) {
 
           <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
             <div className="flex items-center gap-2">
-              <Waveform className="h-4 w-4 text-muted-foreground" />
+              <Waves className="h-4 w-4 text-muted-foreground" />
               <Label htmlFor="radio-visualizer" className="cursor-pointer">Show Visualizer</Label>
             </div>
             <Switch

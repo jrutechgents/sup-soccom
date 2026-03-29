@@ -95,9 +95,6 @@ export function AdminLogin() {
                 {isLoading ? 'Verifying...' : 'Login'}
               </Button>
             </form>
-            <p className="text-xs text-center text-muted-foreground mt-4">
-              Default password: admin123
-            </p>
           </CardContent>
         </Card>
       </motion.div>

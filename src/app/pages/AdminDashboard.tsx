@@ -9,6 +9,7 @@ import { LiveStreamConfig } from '../components/admin/LiveStreamConfig';
 import { RadioConfig } from '../components/admin/RadioConfig';
 import { JsonExport } from '../components/admin/JsonExport';
 import { TestimonialEditor } from '../components/admin/TestimonialEditor';
+import { PrayerConfig } from '../components/admin/PrayerConfig';
 import { useContent } from '../../hooks/useContent';
 import type { ContentConfig } from '../../types/content';
 import { Outlet, useNavigate, useLocation } from 'react-router';
@@ -16,7 +17,7 @@ import { useEffect } from 'react';
 import { Download, Save, FileDown } from 'lucide-react';
 import { toast } from 'sonner';
 
-type AdminTab = 'dashboard' | 'general' | 'live' | 'radio' | 'events' | 'services' | 'testimonials' | 'pages';
+type AdminTab = 'dashboard' | 'general' | 'live' | 'radio' | 'events' | 'services' | 'testimonials' | 'prayer' | 'pages';
 
 export function AdminDashboard() {
   const { content, saveContent, downloadContentJson } = useContent();
@@ -44,7 +45,7 @@ export function AdminDashboard() {
     navigate(`/admin?tab=${tab}`, { replace: true });
   };
 
-  const handleContentUpdate = (updates: Partial<ContentConfig> & { home?: any; about?: any; schedule?: any; services?: any; stats?: any; testimonials?: any; events?: any; live?: any; site?: any }) => {
+  const handleContentUpdate = (updates: Partial<ContentConfig> & { home?: any; about?: any; schedule?: any; services?: any; stats?: any; testimonials?: any; events?: any; live?: any; radio?: any; site?: any; prayer?: any }) => {
     setEditedContent((prev) => {
       const updated: ContentConfig = { ...prev };
 
@@ -60,6 +61,9 @@ export function AdminDashboard() {
       }
       if ('stats' in updates && updates.stats) {
         updated.pages = { ...updated.pages, stats: updates.stats };
+      }
+      if ('prayer' in updates && updates.prayer) {
+        updated.pages = { ...updated.pages, prayer: updates.prayer };
       }
 
       // Handle ServicesContent vs services array - ServicesContent has 'title' property
@@ -151,7 +155,7 @@ export function AdminDashboard() {
 
       {/* Main Tabs */}
       <Tabs value={activeTab} onValueChange={(v) => handleTabChange(v as AdminTab)}>
-        <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8 h-auto">
+        <TabsList className="grid w-full grid-cols-4 lg:grid-cols-9 h-auto">
           <TabsTrigger value="dashboard" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
             Dashboard
           </TabsTrigger>
@@ -161,6 +165,7 @@ export function AdminDashboard() {
           <TabsTrigger value="events">Events</TabsTrigger>
           <TabsTrigger value="services">Services</TabsTrigger>
           <TabsTrigger value="testimonials">Testimonials</TabsTrigger>
+          <TabsTrigger value="prayer">Prayer</TabsTrigger>
           <TabsTrigger value="pages">Export</TabsTrigger>
         </TabsList>
 
@@ -299,6 +304,14 @@ export function AdminDashboard() {
           <TestimonialEditor
             testimonials={editedContent.testimonials}
             onChange={(testimonials) => handleContentUpdate({ testimonials })}
+          />
+        </TabsContent>
+
+        {/* Prayer */}
+        <TabsContent value="prayer" className="space-y-6">
+          <PrayerConfig
+            config={editedContent.pages.prayer}
+            onChange={(prayer) => handleContentUpdate({ prayer })}
           />
         </TabsContent>
 

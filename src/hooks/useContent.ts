@@ -34,6 +34,7 @@ export function useContent() {
           const merged: ContentConfig = {
             site: { ...initialContent.site, ...parsed.site },
             live: { ...initialContent.live, ...parsed.live },
+            radio: { ...initialContent.radio, ...parsed.radio },
             events: parsed.events ?? initialContent.events,
             services: parsed.services ?? initialContent.services,
             testimonials: parsed.testimonials ?? initialContent.testimonials,
@@ -45,6 +46,15 @@ export function useContent() {
                 ...initialContent.pages.about,
                 ...parsed.pages?.about,
                 values: parsed.pages?.about?.values ?? initialContent.pages.about.values,
+              },
+              prayer: {
+                ...initialContent.pages.prayer,
+                ...parsed.pages?.prayer,
+                stats: {
+                  candle: { ...initialContent.pages.prayer.stats.candle, ...parsed.pages?.prayer?.stats?.candle },
+                  community: { ...initialContent.pages.prayer.stats.community, ...parsed.pages?.prayer?.stats?.community },
+                  available: { ...initialContent.pages.prayer.stats.available, ...parsed.pages?.prayer?.stats?.available },
+                },
               },
               stats: { ...initialContent.pages.stats, ...parsed.pages?.stats },
             },
@@ -71,6 +81,7 @@ export function useContent() {
               const merged: ContentConfig = {
                 site: { ...initialContent.site, ...data.record.site },
                 live: { ...initialContent.live, ...data.record.live },
+                radio: { ...initialContent.radio, ...data.record.radio },
                 events: data.record.events ?? initialContent.events,
                 services: data.record.services ?? initialContent.services,
                 testimonials: data.record.testimonials ?? initialContent.testimonials,
@@ -82,6 +93,15 @@ export function useContent() {
                     ...initialContent.pages.about,
                     ...data.record.pages?.about,
                     values: data.record.pages?.about?.values ?? initialContent.pages.about.values,
+                  },
+                  prayer: {
+                    ...initialContent.pages.prayer,
+                    ...data.record.pages?.prayer,
+                    stats: {
+                      candle: { ...initialContent.pages.prayer.stats.candle, ...data.record.pages?.prayer?.stats?.candle },
+                      community: { ...initialContent.pages.prayer.stats.community, ...data.record.pages?.prayer?.stats?.community },
+                      available: { ...initialContent.pages.prayer.stats.available, ...data.record.pages?.prayer?.stats?.available },
+                    },
                   },
                   stats: { ...initialContent.pages.stats, ...data.record.pages?.stats },
                 },
@@ -117,6 +137,7 @@ export function useContent() {
         const merged: ContentConfig = {
           site: { ...initialContent.site, ...parsed.site },
           live: { ...initialContent.live, ...parsed.live },
+          radio: { ...initialContent.radio, ...parsed.radio },
           events: parsed.events ?? initialContent.events,
           services: parsed.services ?? initialContent.services,
           testimonials: parsed.testimonials ?? initialContent.testimonials,
@@ -129,6 +150,7 @@ export function useContent() {
               ...parsed.pages?.about,
               values: parsed.pages?.about?.values ?? initialContent.pages.about.values,
             },
+            prayer: { ...initialContent.pages.prayer, ...parsed.pages?.prayer },
             stats: { ...initialContent.pages.stats, ...parsed.pages?.stats },
           },
           adminPassword: parsed.adminPassword ?? initialContent.adminPassword,

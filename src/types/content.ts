@@ -94,12 +94,29 @@ export interface Testimonial {
   text: string;
 }
 
+// Prayer page content
+export interface PrayerContent {
+  title: string;
+  subtitle: string;
+  formTitle: string;
+  candleTitle: string;
+  candleDescription: string;
+  wallTitle: string;
+  wallSubtitle: string;
+  stats: {
+    candle: { title: string; description: string };
+    community: { title: string; description: string };
+    available: { title: string; description: string };
+  };
+}
+
 // Page-specific content
 export interface PageContent {
   home: HomeContent;
   schedule: ScheduleContent;
   services: ServicesContent;
   about: AboutContent;
+  prayer: PrayerContent;
   stats: StatsContent;
 }
 

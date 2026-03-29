@@ -157,11 +157,6 @@ export function Layout() {
       {/* Mini Radio Player (shown when radio is playing) */}
       <MiniRadioPlayer />
 
-      {/* Main Content */}
-      <main className="flex-1" key={location.pathname}>
-        <Outlet key={location.pathname} />
-      </main>
-
       {/* Footer */}
       <footer className="border-t py-8 bg-muted/50">
         <div className="container mx-auto px-4">

@@ -1,8 +1,7 @@
-import { Card, CardContent } from './ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
-import { Heart, Flame, Sparkles } from 'lucide-react';
+import { Heart, Flame, Users } from 'lucide-react';
 import { motion } from 'motion/react';
-import { cn } from './ui/utils';
 
 // Mock prayer requests for display
 const MOCK_PRAYERS = [
@@ -10,6 +9,7 @@ const MOCK_PRAYERS = [
     id: 1,
     category: 'healing',
     icon: '💊',
+    label: 'Healing',
     text: 'Please pray for my mother who is undergoing surgery tomorrow.',
     time: '2 minutes ago',
     anonymous: true,
@@ -18,6 +18,7 @@ const MOCK_PRAYERS = [
     id: 2,
     category: 'thanksgiving',
     icon: '🙌',
+    label: 'Thanksgiving',
     text: 'Thank you all for your prayers - I got the job!',
     time: '15 minutes ago',
     anonymous: false,
@@ -27,6 +28,7 @@ const MOCK_PRAYERS = [
     id: 3,
     category: 'guidance',
     icon: '🙏',
+    label: 'Guidance',
     text: 'Praying for wisdom as I make a big life decision.',
     time: '1 hour ago',
     anonymous: true,
@@ -35,6 +37,7 @@ const MOCK_PRAYERS = [
     id: 4,
     category: 'comfort',
     icon: '🤗',
+    label: 'Comfort',
     text: 'Please pray for comfort for my family during this difficult time.',
     time: '2 hours ago',
     anonymous: true,
@@ -43,6 +46,7 @@ const MOCK_PRAYERS = [
     id: 5,
     category: 'protection',
     icon: '🛡️',
+    label: 'Protection',
     text: 'Prayers for safe travels for my son serving overseas.',
     time: '3 hours ago',
     anonymous: false,
@@ -50,97 +54,85 @@ const MOCK_PRAYERS = [
   },
 ];
 
-const CATEGORY_COLORS = {
-  healing: 'from-red-500 to-orange-500',
-  guidance: 'from-blue-500 to-cyan-500',
-  thanksgiving: 'from-green-500 to-emerald-500',
-  protection: 'from-purple-500 to-violet-500',
-  comfort: 'from-pink-500 to-rose-500',
-  other: 'from-yellow-500 to-amber-500',
-};
+interface PrayerWallProps {
+  wallTitle?: string;
+  wallSubtitle?: string;
+  candleTitle?: string;
+  candleDescription?: string;
+}
 
-export function PrayerWall() {
+export function PrayerWall({
+  wallTitle = 'Prayer Wall',
+  wallSubtitle = 'Join us in praying for these requests',
+  candleTitle = 'Light a Virtual Candle',
+  candleDescription = 'Light a candle as a symbol of your prayer',
+}: PrayerWallProps) {
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="text-center mb-6">
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 mb-3"
-        >
-          <Heart className="h-7 w-7 text-white" />
-        </motion.div>
-        <h2 className="text-2xl font-bold mb-2">Prayer Wall</h2>
-        <p className="text-sm text-muted-foreground">
-          Join us in praying for these requests
-        </p>
-      </div>
-
-      {/* Prayer Cards */}
-      <div className="space-y-3">
-        {MOCK_PRAYERS.map((prayer, index) => (
-          <motion.div
-            key={prayer.id}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <Card className="group hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-4">
-                <div className="flex gap-3">
-                  {/* Icon */}
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className={cn(
-                      "flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br",
-                      CATEGORY_COLORS[prayer.category as keyof typeof CATEGORY_COLORS] || CATEGORY_COLORS.other
-                    )}
-                  >
-                    <span className="flex items-center justify-center h-full text-lg">
-                      {prayer.icon}
-                    </span>
-                  </motion.div>
-
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm leading-relaxed mb-2">
-                      "{prayer.text}"
-                    </p>
-                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <span>{prayer.time}</span>
-                      <span>•</span>
-                      <span>{prayer.anonymous ? 'Anonymous' : prayer.name}</span>
+    <Card className="shadow-sm h-full">
+      <CardHeader>
+        <CardTitle className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+              <Heart className="h-5 w-5 text-primary" />
+            </div>
+            <div>
+              <div>{wallTitle}</div>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground font-normal">
+                <Users className="h-3 w-3" />
+                {wallSubtitle}
+              </div>
+            </div>
+          </div>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {/* Prayer Cards */}
+        <div className="space-y-3">
+          {MOCK_PRAYERS.map((prayer, index) => (
+            <motion.div
+              key={prayer.id}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.05 }}
+            >
+              <Card className="hover:shadow-md transition-shadow">
+                <CardContent className="p-4">
+                  <div className="flex gap-3">
+                    {/* Icon */}
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="text-lg">{prayer.icon}</span>
                     </div>
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Badge variant="secondary" className="text-xs">
+                          {prayer.label}
+                        </Badge>
+                        <span className="text-xs text-muted-foreground">{prayer.time}</span>
+                      </div>
+                      <p className="text-sm leading-relaxed mb-2">
+                        "{prayer.text}"
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {prayer.anonymous ? 'Anonymous' : prayer.name}
+                      </p>
+                    </div>
+
+                    {/* Pray Button */}
+                    <button className="flex-shrink-0 px-3 py-1.5 rounded-full bg-primary/10 hover:bg-primary/20 text-primary text-xs font-medium transition-colors">
+                      <Heart className="h-3 w-3 mr-1 fill-current" />
+                      Pray
+                    </button>
                   </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
 
-                  {/* Pray Button */}
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => {
-                      // Could add functionality to "pray" for a request
-                    }}
-                    className="flex-shrink-0 px-3 py-1.5 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all"
-                  >
-                    <Heart className="h-3 w-3 mr-1 fill-white" />
-                    Pray
-                  </motion.button>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Candle Lighting Section */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="pt-4"
-      >
-        <Card className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-950/20 dark:to-red-950/20 border-orange-200 dark:border-orange-900">
+        {/* Candle Lighting Section */}
+        <Card className="bg-muted/30 border-border/50">
           <CardContent className="p-6 text-center">
             <motion.div
               animate={{ opacity: [0.5, 1, 0.5] }}
@@ -148,9 +140,9 @@ export function PrayerWall() {
             >
               <Flame className="h-8 w-8 text-orange-500 mx-auto mb-3" />
             </motion.div>
-            <h3 className="font-semibold mb-2">Light a Virtual Candle</h3>
+            <h3 className="font-semibold mb-2">{candleTitle}</h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Light a candle as a symbol of your prayer
+              {candleDescription}
             </p>
             <div className="flex justify-center gap-2">
               {[...Array(5)].map((_, i) => (
@@ -158,10 +150,10 @@ export function PrayerWall() {
                   key={i}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6 + (i * 0.1) }}
-                  whileHover={{ scale: 1.2, rotate: [0, -5, 5, -5, 0] }}
+                  transition={{ delay: 0.5 + (i * 0.1) }}
+                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 rounded-full bg-gradient-to-t from-orange-500 via-yellow-400 to-yellow-200 shadow-lg shadow-orange-500/25 flex items-center justify-center"
+                  className="w-10 h-10 rounded-full bg-gradient-to-t from-orange-500 via-yellow-400 to-yellow-200 shadow-lg flex items-center justify-center"
                 >
                   <Flame className="h-5 w-5 text-orange-600" />
                 </motion.button>
@@ -169,18 +161,7 @@ export function PrayerWall() {
             </div>
           </CardContent>
         </Card>
-      </motion.div>
-
-      {/* Footer Note */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
-        className="text-center text-sm text-muted-foreground"
-      >
-        <Sparkles className="h-4 w-4 inline-block mr-1 text-primary" />
-        <span className="italic">"For where two or three gather in my name, there am I with them."</span>
-      </motion.div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }
