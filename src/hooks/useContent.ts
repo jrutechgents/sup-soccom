@@ -8,10 +8,15 @@ const initialContent = contentData as ContentConfig;
 // Storage key for localStorage
 const CONTENT_STORAGE_KEY = 'holyweek_content';
 
+// JSONBin configuration
+const JSONBIN_URL = import.meta.env.VITE_JSONBIN_URL;
+const JSONBIN_KEY = import.meta.env.VITE_JSONBIN_KEY;
+
 /**
  * Hook to manage application content
  * Content is stored in localStorage for instant updates.
  * Falls back to the JSON file for initial data.
+ * If JSONBin is configured, it will sync content to the cloud.
  */
 export function useContent() {
   const [content, setContent] = useState<ContentConfig>(initialContent);
@@ -19,35 +24,81 @@ export function useContent() {
 
   // Load content from localStorage on mount
   useEffect(() => {
-    const stored = localStorage.getItem(CONTENT_STORAGE_KEY);
-    if (stored) {
-      try {
-        const parsed = JSON.parse(stored) as Partial<ContentConfig>;
-        // Deep merge to ensure all fields exist - only use defined values from parsed
-        const merged: ContentConfig = {
-          site: { ...initialContent.site, ...parsed.site },
-          live: { ...initialContent.live, ...parsed.live },
-          events: parsed.events ?? initialContent.events,
-          services: parsed.services ?? initialContent.services,
-          testimonials: parsed.testimonials ?? initialContent.testimonials,
-          pages: {
-            home: { ...initialContent.pages.home, ...parsed.pages?.home },
-            schedule: { ...initialContent.pages.schedule, ...parsed.pages?.schedule },
-            services: { ...initialContent.pages.services, ...parsed.pages?.services },
-            about: {
-              ...initialContent.pages.about,
-              ...parsed.pages?.about,
-              values: parsed.pages?.about?.values ?? initialContent.pages.about.values,
+    const loadContent = async () => {
+      // Try localStorage first
+      const stored = localStorage.getItem(CONTENT_STORAGE_KEY);
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored) as Partial<ContentConfig>;
+          // Deep merge to ensure all fields exist - only use defined values from parsed
+          const merged: ContentConfig = {
+            site: { ...initialContent.site, ...parsed.site },
+            live: { ...initialContent.live, ...parsed.live },
+            events: parsed.events ?? initialContent.events,
+            services: parsed.services ?? initialContent.services,
+            testimonials: parsed.testimonials ?? initialContent.testimonials,
+            pages: {
+              home: { ...initialContent.pages.home, ...parsed.pages?.home },
+              schedule: { ...initialContent.pages.schedule, ...parsed.pages?.schedule },
+              services: { ...initialContent.pages.services, ...parsed.pages?.services },
+              about: {
+                ...initialContent.pages.about,
+                ...parsed.pages?.about,
+                values: parsed.pages?.about?.values ?? initialContent.pages.about.values,
+              },
+              stats: { ...initialContent.pages.stats, ...parsed.pages?.stats },
             },
-            stats: { ...initialContent.pages.stats, ...parsed.pages?.stats },
-          },
-          adminPassword: parsed.adminPassword ?? initialContent.adminPassword,
-        };
-        setContent(merged);
-      } catch (e) {
-        console.error('Failed to parse stored content:', e);
+            adminPassword: parsed.adminPassword ?? initialContent.adminPassword,
+          };
+          setContent(merged);
+        } catch (e) {
+          console.error('Failed to parse stored content:', e);
+        }
       }
-    }
+
+      // If JSONBin is configured, fetch from cloud
+      if (JSONBIN_URL && JSONBIN_KEY) {
+        try {
+          const response = await fetch(JSONBIN_URL, {
+            headers: {
+              'X-Master-Key': JSONBIN_KEY,
+            },
+          });
+          if (response.ok) {
+            const data = await response.json();
+            if (data.record) {
+              // Merge with initial to ensure all fields exist
+              const merged: ContentConfig = {
+                site: { ...initialContent.site, ...data.record.site },
+                live: { ...initialContent.live, ...data.record.live },
+                events: data.record.events ?? initialContent.events,
+                services: data.record.services ?? initialContent.services,
+                testimonials: data.record.testimonials ?? initialContent.testimonials,
+                pages: {
+                  home: { ...initialContent.pages.home, ...data.record.pages?.home },
+                  schedule: { ...initialContent.pages.schedule, ...data.record.pages?.schedule },
+                  services: { ...initialContent.pages.services, ...data.record.pages?.services },
+                  about: {
+                    ...initialContent.pages.about,
+                    ...data.record.pages?.about,
+                    values: data.record.pages?.about?.values ?? initialContent.pages.about.values,
+                  },
+                  stats: { ...initialContent.pages.stats, ...data.record.pages?.stats },
+                },
+                adminPassword: data.record.adminPassword ?? initialContent.adminPassword,
+              };
+              setContent(merged);
+              // Also save to localStorage as backup
+              localStorage.setItem(CONTENT_STORAGE_KEY, JSON.stringify(merged));
+            }
+          }
+        } catch (e) {
+          console.error('Failed to fetch from JSONBin:', e);
+        }
+      }
+    };
+
+    loadContent();
   }, []);
 
   // Save content to localStorage
@@ -105,11 +156,30 @@ export function useContent() {
     return JSON.stringify(newContent, null, 2);
   };
 
-  // Save content to localStorage only (no download)
-  const saveContent = (contentToSave?: ContentConfig) => {
+  // Save content to localStorage and JSONBin (if configured)
+  const saveContent = async (contentToSave?: ContentConfig) => {
     const data = contentToSave || content;
     setContent(data);
     saveToLocalStorage(data);
+
+    // Save to JSONBin if configured
+    if (JSONBIN_URL && JSONBIN_KEY) {
+      try {
+        // Extract bin ID from URL (remove /latest suffix for PUT)
+        const binUrl = JSONBIN_URL.replace('/latest', '');
+        await fetch(binUrl, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key': JSONBIN_KEY,
+          },
+          body: JSON.stringify(data),
+        });
+        console.log('Content saved to JSONBin');
+      } catch (e) {
+        console.error('Failed to save to JSONBin:', e);
+      }
+    }
   };
 
   // Download content as JSON file
